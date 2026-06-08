@@ -1,0 +1,8 @@
+item,recommended_use,why_it_matters,how_to_use
+식당별 평균,Baseline,식당마다 기본 수요 규모가 다름,식당별 평균 방문자 수로 예측
+식당×요일 평균,Baseline,요일별 수요 차이가 명확함,식당별 특정 요일 평균으로 예측
+최근 이동평균,Baseline/ML feature,최근 수요 흐름을 반영할 수 있음,rolling_7/14/28_mean 사용
+날짜 피처,Ridge/LightGBM,요일·주말·공휴일 효과 반영,"day_of_week, holiday_flg, prev/next holiday"
+식당 피처,Ridge/LightGBM,카테고리·지역별 기본 수요 차이 반영,"air_category_name, area_level_1"
+예약 피처,Ridge/LightGBM/SHAP,방문일 이전에 관측 가능한 선행 신호,"reserve_count, reserve_visitors_sum, lead_time"
+피크/저수요 플래그,Evaluation/Insight,운영 KPI 해석용 라벨,과소예측/과대예측 및 탐지율 분석
